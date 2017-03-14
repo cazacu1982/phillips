@@ -15,7 +15,7 @@ export default class App extends React.PureComponent {
             realizări și satisfacții, un lucru esențial nu ar trebui să ne scape: viața are culoare.
           </p>
           <button>Start</button>
-          <img src="../../assets/images/Philips_Becuri.png" />
+          <img src="../../assets/images/Philips_Becuri.png"/>
       </div>
     );
   }
