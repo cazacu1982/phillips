@@ -1,0 +1,24 @@
+html, body {
+  margin: 0;
+  font-family: sans-serif;
+}
+div {
+ width: 100%;
+ text-align: center;
+
+}
+p {
+
+}
+button {
+  margin: auto;
+  text-transform: uppercase;
+  width: 30%;
+  background-color: transparent;
+  border-radius: 50px;
+  text-align: center;
+  border-color: #fff;
+  box-shadow: none;
+  border: 2px solid;
+  font-size: 4vw;
+}
