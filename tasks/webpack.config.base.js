@@ -54,10 +54,7 @@ module.exports = type => {
       },
         {
           test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
-          loaders: [
-            'file?hash=sha512&digest=hex&name=[hash].[ext]',
-            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-          ]
+          loader: 'url-loader'
         }]
     },
     node: electron ? {

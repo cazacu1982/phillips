@@ -1,22 +1,38 @@
 import React from "react";
-
+import Start from './components/Start';
+import Step1 from './components/Step1';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends React.PureComponent {
+    constructor (props) {
+        super(props);
 
-  static propTypes = {
+        this.state = {
+            showStart : true,
+            showStep1 : false,
+            showStep2 : false,
+            showForm : false
+        };
+        this.handleState = this.handleState.bind(this);
+    }
 
-  };
+  static propTypes = {};
+
+    handleState() {
+        this.setState({
+            showStart : false
+        });
+    }
+    componentDidMount() {
+        this.handleState();
+    }
 
   render() {
     return (
-      <div className="intro">
-          <p>Antrenează-ți memoria pentru a reține ceea ce contează! Fiindcă, dincolo de obiective,
-            realizări și satisfacții, un lucru esențial nu ar trebui să ne scape: viața are culoare.
-          </p>
-          <button>Start</button>
-          <img src="../../assets/images/Philips_Becuri.png"/>
-      </div>
+        <div>
+            {this.state.showStart && <Start  /> }
+            {this.state.showStep1 &&<Step1 />}
+        </div>
     );
   }
 
