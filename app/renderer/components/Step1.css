@@ -1,0 +1,90 @@
+.bg {
+    position: absolute;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+.wrapper {
+    position: relative;
+}
+.bulbs {
+    position: absolute;
+    top:0;
+    display: flex;
+    width: 90%;
+    margin-top: 12%;
+    left: 5%;
+}
+.becuri {
+    cursor: pointer;
+}
+.becuriW {
+
+}
+.tipBulbs {
+   width: 100%;
+    padding-top: 42%;
+}
+.tipBulbs div {
+    width: 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 8%;
+    margin: auto;
+}
+.bulbsWhite {
+    position: absolute;
+    display: flex;
+    top:0;
+    width: 90%;
+    margin-top: 12%;
+    left: 5%;
+}
+.bulb {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 18%;
+    padding-top: 21%;
+
+}
+.raspunsuri {
+    position: absolute;
+    display: flex;
+    top:0;
+    width: 90%;
+    margin-top: 3%;
+    left: 8.5%;
+}
+.raspuns {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 7%;
+    padding-top: 10%;
+    margin-right: 7%;
+}
+.bg  p {
+    position: absolute;
+    padding-top: 38%;
+    color: #fff;
+    width: 80%;
+    font-size: 2vw;
+    margin: auto;
+    left: 10%;
+    z-index: 1;
+}
+.text {
+
+}
+.hidden {
+   opacity: 0;
+    z-index: 10;
+
+}
+.visible {
+  opacity: 1;
+    z-index: 9;
+}

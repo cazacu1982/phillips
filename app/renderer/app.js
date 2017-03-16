@@ -1,4 +1,5 @@
 import React from "react";
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
 import Start from './components/Start';
 import Step1 from './components/Step1';
 
@@ -6,31 +7,30 @@ import Step1 from './components/Step1';
 export default class App extends React.PureComponent {
     constructor (props) {
         super(props);
-
         this.state = {
             showStart : true,
             showStep1 : false,
             showStep2 : false,
             showForm : false
         };
-        this.handleState = this.handleState.bind(this);
     }
 
   static propTypes = {};
 
     handleState() {
         this.setState({
-            showStart : false
+            showStart : false,
+            showStep1 : true
         });
     }
-    componentDidMount() {
+   /* componentDidMount() {
         this.handleState();
-    }
-
+    }*/
   render() {
     return (
-        <div>
-            {this.state.showStart && <Start  /> }
+
+        <div  onClick = {this.handleState.bind(this)}>
+            {this.state.showStart && <Start />}
             {this.state.showStep1 &&<Step1 />}
         </div>
     );

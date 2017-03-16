@@ -7,18 +7,19 @@ export default class Start extends Component {
         super(props);
     }
 
-    static propTypes = {};
+   /* static propTypes = {
+        handleState: React.PropTypes.func
+    };
+*/
 
-  
     render() {
         return (
             <div className={styles.intro} style={{backgroundImage: 'url("./assets/images/Philips_Becuri.png")'}}>
                 <p>Antrenează-ți memoria pentru a reține ceea ce contează! Fiindcă, dincolo de obiective,
                     realizări și satisfacții, un lucru esențial nu ar trebui să ne scape: viața are culoare.
                 </p>
-                <button >Start</button>
+                <button onClick={this.handleState} >Start</button>
             </div>
         );
     }
-
 }
