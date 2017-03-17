@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import styles from './Step1.css';
-import Step2 from './Step2';
 
 export  default class Step1 extends Component {
 
@@ -8,9 +7,8 @@ export  default class Step1 extends Component {
         super(props);
 
         this.state = {
-            showStep2 : false,
-            showStep1 : true,
-            bulbs: [
+
+            bulbs2: [
                 {
                     id: 1, bulbsRosu: [
                     {id: 1, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
@@ -113,34 +111,32 @@ export  default class Step1 extends Component {
                 {id: 6, url: './assets/images/bec_white.png'},
                 {id: 7, url: './assets/images/bec_white.png'}
             ]
-
         }
     }
 
-
     showAnswer(i, n) {
 
-      if(n.toString() === './assets/images/incorect.png' ) {
-          var elemPS = document.getElementById( 'text1' );
-          elemPS.classList.remove('visible_16YK-'); // Add class
-          elemPS.classList.add('hidden_1VS8F'); //
-          var elemPS = document.getElementById( 'textIncorect' );
-          elemPS.classList.add('visible_16YK-'); // Add class
-          elemPS.classList.remove('hidden_1VS8F'); //
-          var elemPS = document.getElementById( 'textCorect' );
-          elemPS.classList.remove('visible_16YK-'); // Add class
-          elemPS.classList.add('hidden_1VS8F'); //
-      } else if(n.toString() === './assets/images/corect.png' ) {
-          var elemPS = document.getElementById( 'text1' );
-          elemPS.classList.remove('visible_16YK-'); // Add class
-          elemPS.classList.add('hidden_1VS8F'); //
-          var elemPS = document.getElementById( 'textCorect' );
-          elemPS.classList.add('visible_16YK-'); // Add class
-          elemPS.classList.remove('hidden_1VS8F'); //
-          var elemPS = document.getElementById( 'textIncorect' );
-          elemPS.classList.remove('visible_16YK-'); // Add class
-          elemPS.classList.add('hidden_1VS8F'); //
-      }
+        if(n.toString() === './assets/images/incorect.png' ) {
+            var elemPS = document.getElementById( 'text1' );
+            elemPS.classList.remove('visible_16YK-'); // Add class
+            elemPS.classList.add('hidden_1VS8F'); //
+            var elemPS = document.getElementById( 'textIncorect' );
+            elemPS.classList.add('visible_16YK-'); // Add class
+            elemPS.classList.remove('hidden_1VS8F'); //
+            var elemPS = document.getElementById( 'textCorect' );
+            elemPS.classList.remove('visible_16YK-'); // Add class
+            elemPS.classList.add('hidden_1VS8F'); //
+        } else if(n.toString() === './assets/images/corect.png' ) {
+            var elemPS = document.getElementById( 'text1' );
+            elemPS.classList.remove('visible_16YK-'); // Add class
+            elemPS.classList.add('hidden_1VS8F'); //
+            var elemPS = document.getElementById( 'textCorect' );
+            elemPS.classList.add('visible_16YK-'); // Add class
+            elemPS.classList.remove('hidden_1VS8F'); //
+            var elemPS = document.getElementById( 'textIncorect' );
+            elemPS.classList.remove('visible_16YK-'); // Add class
+            elemPS.classList.add('hidden_1VS8F'); //
+        }
         var elemBC = document.getElementsByClassName( 'becuri_3tzgy' );
         var elemBW = document.getElementsByClassName( 'becuriW_3bkhb' );
         var elemR = document.getElementsByClassName( 'raspuns_1q91r' );
@@ -155,32 +151,10 @@ export  default class Step1 extends Component {
         elemW.classList.add('hidden_1VS8F'); // Add class
     }
 
-    handleState2() {
-        setTimeout(() => {
-        this.setState({
-
-                showStep1 : false,
-                showStep2 : true
-            }) ;
-            var elemPS = document.getElementById( 'textIncorect' );
-            elemPS.classList.remove('visible_16YK-'); // Add class
-            elemPS.classList.add('hidden_1VS8F'); //
-            var elemPS = document.getElementById( 'textCorect' );
-            elemPS.classList.remove('visible_16YK-'); // Add class
-            elemPS.classList.add('hidden_1VS8F'); //
-            var elemR = document.getElementsByClassName( 'raspuns_1q91r' );
-            for(var i = 0; i < elemR.length; i++) {
-                var elemRaspuns = elemR[i];
-                elemRaspuns.classList.add('hidden_1VS8F');
-                elemRaspuns.classList.remove('visible_16YK-');
-            }
-        }, 10000);
-    }
-
     componentWillMount() {}
 
     render() {
-        const newBulbs = this.state.bulbs.splice(Math.floor(Math.random() * this.state.bulbs.length), 1);
+        const newBulbs = this.state.bulbs2.splice(Math.floor(Math.random() * this.state.bulbs2.length), 1);
 
         console.log(newBulbs);
         var toggleClass = {
@@ -209,7 +183,7 @@ export  default class Step1 extends Component {
         });
 
         let bulbsListWhite = this.state.bulbsWhite.map((item) => {
-           // console.log(item);
+            // console.log(item);
             return (
                 <div className={classDiv + ' ' + styles.bulb + ' ' + styles.becuriW} key={item.id} style={{backgroundImage: 'url(' + item.url +')'}}></div>
             )
@@ -227,8 +201,7 @@ export  default class Step1 extends Component {
         });
 
         return (
-            <div>
-                {this.state.showStep1 &&<div className={styles.bg} style={{backgroundImage: 'url("./assets/images/bg.png")'}}>
+            <div className={styles.bg} style={{backgroundImage: 'url("./assets/images/bg.png")'}}>
                 <div className={styles.wrapper}>
                     <div className={styles.raspunsuri} >
                         {raspuns}
@@ -247,8 +220,6 @@ export  default class Step1 extends Component {
                         {bulbsListTip}
                     </div>
                 </div>
-            </div>}
-                {this.state.showStep2 &&<Step2 />}
             </div>
         )
     }
@@ -261,8 +232,8 @@ export  default class Step1 extends Component {
             var elemBC = document.getElementsByClassName( 'becuri_3tzgy' );
             var elemBT = document.getElementById( 'bulbsTip' );
             var elemBW = document.getElementsByClassName( 'becuriW_3bkhb' );
-            elemPF.classList.remove('visible_16YK-'); //
             elemPF.classList.add('hidden_1VS8F'); // Add class
+            elemPF.classList.remove('visible_16YK-'); //
 
             for(var i = 0; i < elemBC.length; i++) {
                 var elem =  elemBC[i];
@@ -274,11 +245,12 @@ export  default class Step1 extends Component {
                 elemW.classList.remove('hidden_1VS8F'); //
                 elemW.classList.add('visible_16YK-'); // Add class
             }
+
             elemBT.classList.add('visible_16YK-'); // Add class
             elemBT.classList.remove('hidden_1VS8F'); //
             elemPS.classList.add('visible_16YK-'); // Add class
             elemPS.classList.remove('hidden_1VS8F'); //
         },5000);
-        this.handleState2();
     }
+
 }

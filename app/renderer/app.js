@@ -10,7 +10,7 @@ export default class App extends React.PureComponent {
         this.state = {
             showStart : true,
             showStep1 : false,
-            showStep2 : false,
+           
             showForm : false
         };
     }
@@ -23,17 +23,18 @@ export default class App extends React.PureComponent {
             showStep1 : true
         });
     }
-   /* componentDidMount() {
-        this.handleState();
-    }*/
+
+    componentDidMount() {
+       // this.handleStep2();
+    }
   render() {
     return (
 
-        <div  onClick = {this.handleState.bind(this)}>
+        <div onClick = {this.handleState.bind(this)}>
             {this.state.showStart && <Start />}
             {this.state.showStep1 &&<Step1 />}
+           
         </div>
     );
   }
-
 }
