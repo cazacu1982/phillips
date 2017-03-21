@@ -1,0 +1,15 @@
+a button {
+    margin: auto;
+    text-transform: uppercase;
+    width: 30%;
+    background-color: transparent;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: none;
+    border: 2px solid #fff;
+    font-size: 4vw;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    margin-top: 45%;
+}

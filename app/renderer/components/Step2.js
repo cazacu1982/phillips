@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styles from './Step1.css';
+import ButtonInscriere from './ButtonInscriere';
 
 export  default class Step1 extends Component {
 
@@ -7,25 +8,11 @@ export  default class Step1 extends Component {
         super(props);
 
         this.state = {
-
+            showStep2: true,
             bulbs2: [
                 {
-                    id: 1, bulbsRosu: [
+                    id: 1, bulbsPortocaliu: [
                     {id: 1, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 3, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 6, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 7, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'}
-                ],
-                    txt: 'Aprinde becurile care au fost de culoare roşie.',
-                    urltipbec: './assets/images/bec_rosu.png'
-                },
-
-                {
-                    id: 2, bulbsPortocaliu: [
-                    {id: 1, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/corect.png'},
                     {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 3, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'},
@@ -33,73 +20,87 @@ export  default class Step1 extends Component {
                     {id: 6, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 7, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/corect.png'}
                 ],
-                    txt: 'Aprinde becurile care au fost de culoare portocalie.',
+                    txt: 'Aprinde becul care a fost de culoare roşie şi becul care a fost de culoare portocalie.',
                     urltipbec: './assets/images/bec_portocaliu.png'
                 },
+
                 {
-                    id: 3, bulbsRoz: [
-                    {id: 1, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'},
+                    id: 2, bulbsRoz: [
+                    {id: 1, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
                     {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/corect.png'},
                     {id: 3, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 6, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 7, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/corect.png'}
+                    {id: 7, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'}
                 ],
-                    txt: 'Aprinde becurile care au fost de culoare roz.',
+                    txt: 'Aprinde becul care a fost de culoare roşie şi becul care a fost de culoare roz.',
                     urltipbec: './assets/images/bec_roz.png'
                 },
                 {
-                    id: 4, bulbsMov: [
-                    {id: 1, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'},
+                    id: 3, bulbsMov: [
+                    {id: 1, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
                     {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 3, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 3, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 6, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 7, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/corect.png'}
+                ],
+                    txt: 'Aprinde becul care a fost de culoare roşie şi becul care a fost de culoare mov.',
+                    urltipbec: './assets/images/bec_mov.png'
+                },
+                {
+                    id: 4, bulbsVerde: [
+                    {id: 1, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 3, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 6, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 7, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'}
+                ],
+                    txt: 'Aprinde becul care a fost de culoare roşie şi becul care a fost de culoare verde.',
+                    urltipbec: './assets/images/bec_verde.png'
+                },
+                {
+                    id: 5, bulbsAlbastru: [
+                    {id: 1, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 3, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 4, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 6, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 7, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'}
+                ],
+                    txt: 'Aprinde becul care a fost de culoare roşie şi becul care a fost de culoare albastră.',
+                    urltipbec: './assets/images/bec_albastru.png'
+                },
+                {
+                    id: 6, bulbsGalben: [
+                    {id: 1, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 3, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 6, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 7, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'}
+                ],
+                    txt: 'Aprinde becul care a fost de culoare roşie şi becul care a fost de culoare galbenă.',
+                    urltipbec: './assets/images/bec_galben.png'
+                },
+                {
+                    id: 7, bulbsRoz: [
+                    {id: 1, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/corect.png'},
+                    {id: 2, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 3, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/incorect.png'},
+                    {id: 4, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
                     {id: 6, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/corect.png'},
                     {id: 7, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/incorect.png'}
                 ],
-                    txt: 'Aprinde becurile care au fost de culoare mov.',
+                    txt: 'Aprinde becul care a fost de culoare roz şi becul care a fost de culoare mov.',
                     urltipbec: './assets/images/bec_mov.png'
-                },
-                {
-                    id: 5, bulbsVerde: [
-                    {id: 1, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 3, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 4, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 6, url: './assets/images/bec_verde.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 7, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/incorect.png'}
-                ],
-                    txt: 'Aprinde becurile care au fost de culoare verde.',
-                    urltipbec: './assets/images/bec_verde.png'
-                },
-                {
-                    id: 6, bulbsAlbastru: [
-                    {id: 1, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 2, url: './assets/images/bec_roz.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 3, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 6, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 7, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/incorect.png'}
-                ],
-                    txt: 'Aprinde becurile care au fost de culoare albastră.',
-                    urltipbec: './assets/images/bec_albastru.png'
-                },
-                {
-                    id: 7, bulbsGalben: [
-                    {id: 1, url: './assets/images/bec_portocaliu.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 2, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 3, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 4, url: './assets/images/bec_galben.png', urlraspuns: './assets/images/corect.png'},
-                    {id: 5, url: './assets/images/bec_albastru.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 6, url: './assets/images/bec_mov.png', urlraspuns: './assets/images/incorect.png'},
-                    {id: 7, url: './assets/images/bec_rosu.png', urlraspuns: './assets/images/incorect.png'}
-                ],
-                    txt: 'Aprinde becurile care au fost de culoare galbenă.',
-                    urltipbec: './assets/images/bec_galben.png'
                 }
             ],
             bulbsWhite: [
@@ -111,7 +112,7 @@ export  default class Step1 extends Component {
                 {id: 6, url: './assets/images/bec_white.png'},
                 {id: 7, url: './assets/images/bec_white.png'}
             ]
-        }
+        };
     }
 
     showAnswer(i, n) {
@@ -120,20 +121,20 @@ export  default class Step1 extends Component {
             var elemPS = document.getElementById( 'text1' );
             elemPS.classList.remove('visible_16YK-'); // Add class
             elemPS.classList.add('hidden_1VS8F'); //
-            var elemPS = document.getElementById( 'textIncorect' );
+            var elemPS = document.getElementById( 'rezultatInCorect' );
             elemPS.classList.add('visible_16YK-'); // Add class
             elemPS.classList.remove('hidden_1VS8F'); //
-            var elemPS = document.getElementById( 'textCorect' );
+            var elemPS = document.getElementById( 'rezultatCorect' );
             elemPS.classList.remove('visible_16YK-'); // Add class
             elemPS.classList.add('hidden_1VS8F'); //
         } else if(n.toString() === './assets/images/corect.png' ) {
             var elemPS = document.getElementById( 'text1' );
             elemPS.classList.remove('visible_16YK-'); // Add class
             elemPS.classList.add('hidden_1VS8F'); //
-            var elemPS = document.getElementById( 'textCorect' );
+            var elemPS = document.getElementById( 'rezultatCorect' );
             elemPS.classList.add('visible_16YK-'); // Add class
             elemPS.classList.remove('hidden_1VS8F'); //
-            var elemPS = document.getElementById( 'textIncorect' );
+            var elemPS = document.getElementById( 'rezultatInCorect' );
             elemPS.classList.remove('visible_16YK-'); // Add class
             elemPS.classList.add('hidden_1VS8F'); //
         }
@@ -151,12 +152,19 @@ export  default class Step1 extends Component {
         elemW.classList.add('hidden_1VS8F'); // Add class
     }
 
-    componentWillMount() {}
+    stepDoi() {
+        setTimeout(() => {
+            var elemBT = document.getElementById( 'bulbsTip' );
+            elemBT.classList.remove('tipBulbs_2UhwT'); // Add class
+            elemBT.classList.add('hide'); //
+        },10000);
+    }
+    componentWillMount() { }
 
     render() {
         const newBulbs = this.state.bulbs2.splice(Math.floor(Math.random() * this.state.bulbs2.length), 1);
 
-        console.log(newBulbs);
+       // console.log(newBulbs);
         var toggleClass = {
             showBulbsWhite: true,
             hideBulbsColored: false
@@ -201,7 +209,8 @@ export  default class Step1 extends Component {
         });
 
         return (
-            <div className={styles.bg} style={{backgroundImage: 'url("./assets/images/bg.png")'}}>
+           <div>
+                <div className={styles.bg} style={{backgroundImage: 'url("./assets/images/bg.png")'}} >
                 <div className={styles.wrapper}>
                     <div className={styles.raspunsuri} >
                         {raspuns}
@@ -216,11 +225,15 @@ export  default class Step1 extends Component {
                     {text}
                     <p className={classDiv} id="textIncorect">Memoria ți-a jucat o festă. Dacă-ți juca un dans din Maramureș și nu-i ieșeau pașii tot nu era de preferat. Continuă, mai ai o șansă.</p>
                     <p className={classDiv} id="textCorect">Așa este, se vede că nu-ți scapă esențialul. Pregătește-te pentru runda următoare, fii cu ochii în şapte! Sau în patru cu trei. Ai prins ideea, concentrează-te pe cele şapte becuri!</p>
+                    <p  className={classDiv} id="rezultatCorect">Excelent! Atenția și memoria îți funcționează perfect, vă cunoașteți din copilărie, nu-i așa? Completează  formularul și înscrie-te pentru marele premiu!</p>
+                    <p  className={classDiv} id="rezultatInCorect">Răspunsul este incorect. Sigur nu ai închis ochii? Sau obișnuiești să clipești prelung? Oricum ar fi, înscrie-te pentru marele premiu!</p>
                     <div className={classDiv + ' ' + styles.tipBulbs} id="bulbsTip">
                         {bulbsListTip}
                     </div>
+                    <ButtonInscriere />
                 </div>
-            </div>
+             </div>
+           </div>
         )
     }
 
@@ -251,6 +264,6 @@ export  default class Step1 extends Component {
             elemPS.classList.add('visible_16YK-'); // Add class
             elemPS.classList.remove('hidden_1VS8F'); //
         },5000);
+        this.stepDoi();
     }
-
 }

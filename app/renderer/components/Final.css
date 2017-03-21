@@ -1,0 +1,19 @@
+.bgFinal {
+    position: absolute;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+h1 {
+    text-transform: uppercase;
+    padding-top: 10%;
+}
+.finalP {
+    color: #fff;
+    font-size: 1.6vw;
+    padding: 0 28%;
+}

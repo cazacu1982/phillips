@@ -10,6 +10,7 @@ export  default class Step1 extends Component {
         this.state = {
             showStep2 : false,
             showStep1 : true,
+           
             bulbs: [
                 {
                     id: 1, bulbsRosu: [
@@ -113,10 +114,11 @@ export  default class Step1 extends Component {
                 {id: 6, url: './assets/images/bec_white.png'},
                 {id: 7, url: './assets/images/bec_white.png'}
             ]
-
-        }
+        };
+       /* Step1.propTypes = {
+            handleStateForm: React.PropTypes.func
+        };*/
     }
-
 
     showAnswer(i, n) {
 
@@ -154,14 +156,14 @@ export  default class Step1 extends Component {
         elemW.classList.remove('visible_16YK-'); //
         elemW.classList.add('hidden_1VS8F'); // Add class
     }
-
+   
     handleState2() {
         setTimeout(() => {
         this.setState({
-
                 showStep1 : false,
                 showStep2 : true
-            }) ;
+        }) ;
+
             var elemPS = document.getElementById( 'textIncorect' );
             elemPS.classList.remove('visible_16YK-'); // Add class
             elemPS.classList.add('hidden_1VS8F'); //
@@ -180,9 +182,9 @@ export  default class Step1 extends Component {
     componentWillMount() {}
 
     render() {
-        const newBulbs = this.state.bulbs.splice(Math.floor(Math.random() * this.state.bulbs.length), 1);
-
-        console.log(newBulbs);
+        const newBulbs = this.state.bulbs.splice(Math.floor(Math.random() * this.state.bulbs.length), 1); 
+       
+       // console.log(newBulbs);
         var toggleClass = {
             showBulbsWhite: true,
             hideBulbsColored: false
@@ -228,7 +230,8 @@ export  default class Step1 extends Component {
 
         return (
             <div>
-                {this.state.showStep1 &&<div className={styles.bg} style={{backgroundImage: 'url("./assets/images/bg.png")'}}>
+                {this.state.showStep1 &&
+                    <div className={styles.bg} style={{backgroundImage: 'url("./assets/images/bg.png")'}}>
                 <div className={styles.wrapper}>
                     <div className={styles.raspunsuri} >
                         {raspuns}
@@ -248,13 +251,12 @@ export  default class Step1 extends Component {
                     </div>
                 </div>
             </div>}
-                {this.state.showStep2 &&<Step2 />}
+                 {this.state.showStep2 &&<Step2 />}
             </div>
         )
     }
 
     componentDidMount() {
-
         setTimeout( () => {
             var elemPF = document.getElementById( 'text' );
             var elemPS = document.getElementById( 'text1' );
@@ -281,4 +283,5 @@ export  default class Step1 extends Component {
         },5000);
         this.handleState2();
     }
+    componentWillUnmount() {}
 }

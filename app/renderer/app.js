@@ -1,40 +1,27 @@
-import React from "react";
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router';
+import React, {Component} from "react";
+import { HashRouter as Router, Route } from 'react-router-dom';
 import Start from './components/Start';
 import Step1 from './components/Step1';
+import Inscriere from './components/Inscriere';
+import Final from './components/Final';
 
 // eslint-disable-next-line react/prefer-stateless-function
-export default class App extends React.PureComponent {
-    constructor (props) {
-        super(props);
-        this.state = {
-            showStart : true,
-            showStep1 : false,
-           
-            showForm : false
-        };
+export default class App extends Component {
+ 
+    componentDidMount() {}
+
+        render()
+        {
+            return (
+            <Router>
+                <div>
+                    <Route exact path='/' component={Start} />
+                    <Route path='/step1' component={Step1} />
+                    <Route path='/inscriere' component={Inscriere} />
+                    <Route path='/final' component={Final} />
+                    
+                </div>
+            </Router>
+            );
+        }
     }
-
-  static propTypes = {};
-
-    handleState() {
-        this.setState({
-            showStart : false,
-            showStep1 : true
-        });
-    }
-
-    componentDidMount() {
-       // this.handleStep2();
-    }
-  render() {
-    return (
-
-        <div onClick = {this.handleState.bind(this)}>
-            {this.state.showStart && <Start />}
-            {this.state.showStep1 &&<Step1 />}
-           
-        </div>
-    );
-  }
-}
