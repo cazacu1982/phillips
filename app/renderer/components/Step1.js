@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { HashRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import styles from './Step1.css';
 import Step2 from './Step2';
 
@@ -8,9 +9,9 @@ export  default class Step1 extends Component {
         super(props);
 
         this.state = {
-            showStep2 : false,
+            showStep22 : false,
             showStep1 : true,
-           
+            redirect: false,
             bulbs: [
                 {
                     id: 1, bulbsRosu: [
@@ -118,6 +119,7 @@ export  default class Step1 extends Component {
        /* Step1.propTypes = {
             handleStateForm: React.PropTypes.func
         };*/
+
     }
 
     showAnswer(i, n) {
@@ -155,29 +157,41 @@ export  default class Step1 extends Component {
         elem.classList.add('visible_16YK-'); // Add class
         elemW.classList.remove('visible_16YK-'); //
         elemW.classList.add('hidden_1VS8F'); // Add class
-    }
-   
-    handleState2() {
-        setTimeout(() => {
-        this.setState({
-                showStep1 : false,
-                showStep2 : true
-        }) ;
 
-            var elemPS = document.getElementById( 'textIncorect' );
-            elemPS.classList.remove('visible_16YK-'); // Add class
-            elemPS.classList.add('hidden_1VS8F'); //
-            var elemPS = document.getElementById( 'textCorect' );
-            elemPS.classList.remove('visible_16YK-'); // Add class
-            elemPS.classList.add('hidden_1VS8F'); //
-            var elemR = document.getElementsByClassName( 'raspuns_1q91r' );
-            for(var i = 0; i < elemR.length; i++) {
-                var elemRaspuns = elemR[i];
-                elemRaspuns.classList.add('hidden_1VS8F');
-                elemRaspuns.classList.remove('visible_16YK-');
-            }
-        }, 10000);
     }
+     changeRedirect(i) {
+
+        if (isNaN(i) == false) {
+            clearTimeout(this.start);
+            this.start = null;
+            this.start = setTimeout(() => {
+
+                this.setState({
+                    showStep1: false,
+                    showStep22: true
+                });
+                var elemPS = document.getElementById('textIncorect');
+                elemPS.classList.remove('visible_16YK-'); // Add class
+                elemPS.classList.add('hidden_1VS8F'); //
+                var elemPS = document.getElementById('textCorect');
+                elemPS.classList.remove('visible_16YK-'); // Add class
+                elemPS.classList.add('hidden_1VS8F'); //
+                var elemR = document.getElementsByClassName('raspuns_1q91r');
+                for (var i = 0; i < elemR.length; i++) {
+                    var elemRaspuns = elemR[i];
+                    elemRaspuns.classList.add('hidden_1VS8F');
+                    elemRaspuns.classList.remove('visible_16YK-');
+                }
+            }, 10000);
+        } else {
+            this.start = setTimeout(() => {
+                this.setState({redirect: true});
+                this.start = null;
+            },10000);
+        }
+     }
+
+
 
     componentWillMount() {}
 
@@ -206,7 +220,7 @@ export  default class Step1 extends Component {
 
         let bulbsList = newArr[1].map((item) => {
             return (
-                <div onClick={this.showAnswer.bind(this, item.id, item.urlraspuns)} className={classDivColored + ' ' + styles.bulb + ' ' + styles.becuri }  key={item.id} style={{backgroundImage: 'url(' + item.url +')'}}></div>
+                <div onClick={function(){this.showAnswer( item.id, item.urlraspuns); this.changeRedirect(item.id);}.bind(this)} className={classDivColored + ' ' + styles.bulb + ' ' + styles.becuri }  key={item.id} style={{backgroundImage: 'url(' + item.url +')'}}></div>
             )
         });
 
@@ -251,7 +265,8 @@ export  default class Step1 extends Component {
                     </div>
                 </div>
             </div>}
-                 {this.state.showStep2 &&<Step2 />}
+                 {this.state.showStep22 &&<Step2 showStep22={this.state.showStep22}/>}
+                 {this.state.redirect && <Redirect to="/" />}
             </div>
         )
     }
@@ -281,7 +296,7 @@ export  default class Step1 extends Component {
             elemPS.classList.add('visible_16YK-'); // Add class
             elemPS.classList.remove('hidden_1VS8F'); //
         },5000);
-        this.handleState2();
+        this.changeRedirect();
     }
     componentWillUnmount() {}
 }

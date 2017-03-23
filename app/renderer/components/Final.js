@@ -11,8 +11,6 @@ export default class Final extends Component {
         }
     }
 
-
-
     render() {
         return (
             <div className={styles.bgFinal} style={{backgroundImage: 'url("./assets/images/bgFinal.png")'}}>

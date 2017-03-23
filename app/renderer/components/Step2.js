@@ -159,7 +159,7 @@ export  default class Step1 extends Component {
             elemBT.classList.add('hide'); //
         },10000);
     }
-    componentWillMount() { }
+
 
     render() {
         const newBulbs = this.state.bulbs2.splice(Math.floor(Math.random() * this.state.bulbs2.length), 1);
@@ -238,32 +238,37 @@ export  default class Step1 extends Component {
     }
 
     componentDidMount() {
+       
+        if( this.props.showStep22 == false) {
+            clearTimeout(this.start);
+            this.start = null;
+        } else {
+            this.start = setTimeout(() => {
+                var elemPF = document.getElementById('text');
+                var elemPS = document.getElementById('text1');
+                var elemBC = document.getElementsByClassName('becuri_3tzgy');
+                var elemBT = document.getElementById('bulbsTip');
+                var elemBW = document.getElementsByClassName('becuriW_3bkhb');
+                elemPF.classList.add('hidden_1VS8F'); // Add class
+                elemPF.classList.remove('visible_16YK-'); //
 
-        setTimeout( () => {
-            var elemPF = document.getElementById( 'text' );
-            var elemPS = document.getElementById( 'text1' );
-            var elemBC = document.getElementsByClassName( 'becuri_3tzgy' );
-            var elemBT = document.getElementById( 'bulbsTip' );
-            var elemBW = document.getElementsByClassName( 'becuriW_3bkhb' );
-            elemPF.classList.add('hidden_1VS8F'); // Add class
-            elemPF.classList.remove('visible_16YK-'); //
+                for (var i = 0; i < elemBC.length; i++) {
+                    var elem = elemBC[i];
+                    elem.classList.remove('visible_16YK-'); //
+                    elem.classList.add('hidden_1VS8F'); // Add class
+                }
+                for (var j = 0; j < elemBC.length; j++) {
+                    var elemW = elemBW[j];
+                    elemW.classList.remove('hidden_1VS8F'); //
+                    elemW.classList.add('visible_16YK-'); // Add class
+                }
 
-            for(var i = 0; i < elemBC.length; i++) {
-                var elem =  elemBC[i];
-                elem.classList.remove('visible_16YK-'); //
-                elem.classList.add('hidden_1VS8F'); // Add class
-            }
-            for(var j = 0; j < elemBC.length; j++) {
-                var elemW =  elemBW[j];
-                elemW.classList.remove('hidden_1VS8F'); //
-                elemW.classList.add('visible_16YK-'); // Add class
-            }
-
-            elemBT.classList.add('visible_16YK-'); // Add class
-            elemBT.classList.remove('hidden_1VS8F'); //
-            elemPS.classList.add('visible_16YK-'); // Add class
-            elemPS.classList.remove('hidden_1VS8F'); //
-        },5000);
+                elemBT.classList.add('visible_16YK-'); // Add class
+                elemBT.classList.remove('hidden_1VS8F'); //
+                elemPS.classList.add('visible_16YK-'); // Add class
+                elemPS.classList.remove('hidden_1VS8F'); //
+            }, 5000);
+        }
         this.stepDoi();
     }
 }

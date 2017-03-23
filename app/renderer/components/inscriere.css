@@ -1,0 +1,74 @@
+button  {
+    margin: 3% auto 9%;
+    text-transform: uppercase;
+    width: 35%;
+    background-color: transparent;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: none;
+    border: 2px solid #fff;
+    font-size: 3vw;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+
+}
+h1 {
+    width: 100%;
+    padding: 7% 0 2% 0;
+    font-size: 1.5vw;
+    color:#fff;
+    margin: 0 auto;
+}
+.container {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+.formGroup {
+    width: 80%;
+    margin: auto;
+}
+.ControlLabel {
+    color: #fff;
+    font-size: 1.2vw;
+    padding-top: 5%;
+}
+.formControl {
+    border-radius: 20px;
+    padding: 4%;
+    background-color: rgba(255, 255, 255, 0.7);
+    outline: none;
+}
+.radioLabel {
+    color: #fff;
+    font-size: 0.9vw;
+
+}
+label.radioLabel:nth-child(even) {
+    padding-top: 2.5%;
+    height: 0;
+}
+label.radioLabel:nth-child(odd) {
+    height: 0;
+}
+.buttonRadio {
+    float: right;
+}
+.Group {
+    width: 50%;
+    margin: auto;
+}
+.buttonRadio {
+    position: relative;
+    display: block;
+    margin-top: 4px;
+    margin-left: 20px;
+}
+span {
+
+}
+.help {
+    color: #C42B80;
+    font-size: 0.9vw;
+}
