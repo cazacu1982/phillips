@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from './Inscriere.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Redirect, Link } from 'react-router-dom';
 import { FormControl, FormGroup, ControlLabel, Radio, HelpBlock} from 'react-bootstrap';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -12,8 +12,9 @@ export default class Inscriere extends Component {
             prenume: '',
             tel: '',
             email: '',
-            radio1: true,
-            radio2: true
+            radio1: false,
+            radio2: false,
+            redirect: false
         };
         this.getValidationState = this.getValidationState.bind(this)
     }
@@ -24,7 +25,7 @@ export default class Inscriere extends Component {
     }
     handleChange(event) {
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
         this.setState({
             [name]: value
@@ -48,7 +49,9 @@ export default class Inscriere extends Component {
                 radio2: this.state.radio2
             })
         });
-
+        this.setState({
+            redirect: !this.state.redirect
+        });
     }
 
     render() {
@@ -69,12 +72,13 @@ export default class Inscriere extends Component {
                                                      placeholder="Enter name"
                                                      onChange={this.handleChange.bind(this)}
                                         />
-                                        <HelpBlock>Câmpul Nume nu este completat corespunzător. Te rugăm verifică ca datele introduse în formularul de înscriere să fie corect completate. Îţi mulţumim!</HelpBlock>
+                                        { /* <HelpBlock>Câmpul Nume nu este completat corespunzător. Te rugăm verifică ca datele introduse în formularul de înscriere să fie corect completate. Îţi mulţumim!</HelpBlock>*/}
                                     </FormGroup>
                                 <ControlLabel className={styles.ControlLabel}>PRENUME*</ControlLabel>
                                 <FormControl className={styles.formControl}
                                              type="text"
                                              name='prenume'
+                                             required={true}
                                              placeholder="Enter prenume"
                                              onChange={this.handleChange.bind(this)}
                                         />
@@ -82,22 +86,34 @@ export default class Inscriere extends Component {
                                 <FormControl className={styles.formControl}
                                              type="text"
                                              name='tel'
+                                             required={true}
                                              placeholder="Enter nr telefon"
                                              onChange={this.handleChange.bind(this)}
                                         />
+                                <FormGroup >
                                 <ControlLabel className={styles.ControlLabel}>ADRESA DE E-MAIL*</ControlLabel>
                                 <FormControl className={styles.formControl}
-                                             type="text"
+                                             type="email"
                                              name='email'
+                                             required={true}
                                              placeholder="Enter email"
                                              onChange={this.handleChange.bind(this)}
                                         />
+                                 </FormGroup>
                                 </div>
-                                <ControlLabel className={styles.radioLabel}>Sunt de acord cu Regulamentul Oficial al Campaniei disponibil pe <Link to="http://www.philips.ro/">www.philips.ro</Link>.<Radio className={styles.buttonRadio} type="checkbox" name="radio1"  onChange={this.handleChange.bind(this)}><span>*</span></Radio></ControlLabel>
-                                <ControlLabel className={styles.radioLabel}>Sunt de acord ca datele mele să fie utilizate în scop de marketing în activităţi ulterioare Philips.<Radio className={styles.buttonRadio} type="checkbox" name="radio2"  onChange={this.handleChange.bind(this)}/></ControlLabel>
+                                <ControlLabel className={styles.radioLabel}>Sunt de acord cu Regulamentul Oficial al Campaniei disponibil pe <Link to="http://www.philips.ro/">www.philips.ro</Link>.<Radio className={styles.buttonRadio}
+                                                                                                                                                                                                            type="checkbox"
+                                                                                                                                                                                                            name="radio1"
+                                                                                                                                                                                                            required={true}
+                                                                                                                                                                                                            onChange={this.handleChange.bind(this)}><span>*</span></Radio></ControlLabel>
+                                <ControlLabel className={styles.radioLabel}>Sunt de acord ca datele mele să fie utilizate în scop de marketing în activităţi ulterioare Philips.<Radio className={styles.buttonRadio}
+                                                                                                                                                                                       type="checkbox"
+                                                                                                                                                                                       name="radio2"
+                                                                                                                                                                                       onChange={this.handleChange.bind(this)}/></ControlLabel>
                                 <FormControl.Feedback />
                                 <HelpBlock className={styles.help}>Câmpurile marcate cu * sunt obligatorii</HelpBlock>
                                <button type="submit">TRIMITE</button>
+                                {this.state.redirect && <Redirect to="/final" />}
                             </FormGroup>
                         </form>
                     </div>
